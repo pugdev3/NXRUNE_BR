@@ -5,7 +5,7 @@ using UndertaleModLib.Util;
 
 EnsureDataLoaded();
 
-if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune chapter 1")
+if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune capítulo 1")
 {
     ScriptError("Error : Not a Deltarune CH1 data.win file");
     return;
@@ -80,7 +80,7 @@ application_surface_draw_enable(false);");
 
 importGroup.QueueFindReplace("gml_Object_obj_time_Create_0", "scr_enable_screen_border(global.is_console);", "scr_enable_screen_border(true);");
 
-importGroup.QueueFindReplace("gml_Object_obj_time_Draw_77", "if (scr_is_switch_os() || os_type == os_ps4 || os_type == os_ps5)", "if (true)");
+importGroup.QueueFindReplace("gml_Object_obj_time_Draw_77", "if (os_type == os_switch || os_type == os_ps4 || os_type == os_ps5)", "if (true)");
 
 importGroup.QueueFindReplace("gml_Object_obj_time_Draw_77", @"var xx = floor((ww - (sw * global.window_scale)) / 2);
 var yy = floor((wh - (sh * global.window_scale)) / 2);", @"var border_w = 1920;
@@ -112,7 +112,7 @@ importGroup.QueueFindReplace("gml_Object_obj_time_Draw_64", "draw_sprite_ext(scr
 
 // scr_draw_background_ps4
 
-importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    if (os_type == os_ps4 || os_type == os_ps5 || scr_is_switch_os())
+importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    if (os_type == os_ps4 || os_type == os_ps5 || os_type == os_switch)
     {
         var scale = window_get_width() / 1920;
         draw_background_stretched(bg, xx * scale, yy * scale, background_get_width(bg) * scale, background_get_height(bg) * scale);
@@ -149,8 +149,6 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (global.is_co
                             global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dynamic"");", @"if (true)
                         {
                             global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dynamic"");");
-
-importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Alarm_0", "if (global.is_console)", "if (true)");
 
 // obj_darkcontroller
 
@@ -301,10 +299,6 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Step_0", @"         
                     
                     if (global.submenucoord[30] == 7)
                         m_quit = 1;");
-
-// obj_chapter_continue
-
-importGroup.QueueFindReplace("gml_Object_obj_chapter_continue_Alarm_0", "if (global.is_console)", "if (true)");
 
 importGroup.Import();
 

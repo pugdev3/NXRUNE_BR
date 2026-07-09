@@ -5,7 +5,7 @@ using UndertaleModLib.Util;
 
 EnsureDataLoaded();
 
-if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune chapter 4")
+if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune capítulo 4")
 {
     ScriptError("Error : Not a Deltarune CH4 data.win file");
     return;
@@ -381,9 +381,11 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
 
 importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Alarm_0", "if (global.is_console)", "if (true)");
 
-// obj_chapter_continue
+// # Não existe no arquivo ¯\_(ツ)_/¯
 
-importGroup.QueueFindReplace("gml_Object_obj_chapter_continue_Alarm_0", "if (global.is_console)", "if (true)");
+// # obj_chapter_continue
+
+// importGroup.QueueFindReplace("gml_Object_obj_chapter_continue_Alarm_0", "if (global.is_console)", "if (true)");
 
 // scr_text
 

@@ -5,7 +5,7 @@ using UndertaleModLib.Util;
 
 EnsureDataLoaded();
 
-if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune chapter 3")
+if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune capítulo 3")
 {
     ScriptError("Error : Not a Deltarune CH3 data.win file");
     return;
@@ -228,17 +228,17 @@ importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    i
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", "draw_sprite(spr_heart, 0, _heartXPos, yy + 160 + (global.submenucoord[30] * 35));", "draw_sprite(spr_heart, 0, _heartXPos, yy + 140 + (global.submenucoord[30] * 35));");
 
-importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        draw_text(_xPos, yy + 150, string_hash_to_newline(stringsetloc(""Master Volume"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
+importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        draw_text(_xPos, yy + 150, string_hash_to_newline(stringsetloc(""Volume Principal"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
         draw_text(_selectXPos, yy + 150, string_hash_to_newline(audvol));
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 185, string_hash_to_newline(stringsetloc(""Controls"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
-        draw_text(_xPos, yy + 220, string_hash_to_newline(stringsetloc(""Simplify VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
+        draw_text(_xPos, yy + 185, string_hash_to_newline(stringsetloc(""Controles"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
+        draw_text(_xPos, yy + 220, string_hash_to_newline(stringsetloc(""Simplificar VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
         draw_text(_selectXPos, yy + 220, string_hash_to_newline(flashoff));",
-        @"        draw_text(_xPos, yy + 130, string_hash_to_newline(stringsetloc(""Master Volume"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
+        @"        draw_text(_xPos, yy + 130, string_hash_to_newline(stringsetloc(""Volume Principal"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
         draw_text(_selectXPos, yy + 130, string_hash_to_newline(audvol));
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 165, string_hash_to_newline(stringsetloc(""Controls"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
-        draw_text(_xPos, yy + 200, string_hash_to_newline(stringsetloc(""Simplify VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
+        draw_text(_xPos, yy + 165, string_hash_to_newline(stringsetloc(""Controles"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
+        draw_text(_xPos, yy + 200, string_hash_to_newline(stringsetloc(""Simplificar VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
         draw_text(_selectXPos, yy + 200, string_hash_to_newline(flashoff));");
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        if (global.is_console)
@@ -254,19 +254,19 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
             draw_text(_xPos, yy + 290, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
             draw_text(_selectXPos, yy + 290, border_options[selected_border]);
             draw_set_color(c_white);
-            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
             draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
         }
         else
         {
-            draw_text(_xPos, yy + 255, string_hash_to_newline(stringsetloc(""Fullscreen"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
+            draw_text(_xPos, yy + 255, string_hash_to_newline(stringsetloc(""Tela Cheia"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
             draw_text(xx + 430, yy + 255, string_hash_to_newline(fullscreenoff));
             draw_text(_xPos, yy + 290, string_hash_to_newline(autorun_text));
             draw_text(xx + 430, yy + 290, string_hash_to_newline(runoff));
-            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
             draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
         }",
-        @"        draw_text(_xPos, yy + 235, string_hash_to_newline(stringsetloc(""Fullscreen"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
+        @"        draw_text(_xPos, yy + 235, string_hash_to_newline(stringsetloc(""Tela Cheia"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
         draw_text(_selectXPos, yy + 235, string_hash_to_newline(fullscreenoff));
         draw_text(_xPos, yy + 270, string_hash_to_newline(autorun_text));
         draw_text(_selectXPos, yy + 270, string_hash_to_newline(runoff));
@@ -278,7 +278,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
         draw_text(_xPos, yy + 305, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
         draw_text(_selectXPos, yy + 305, border_options[selected_border]);
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+        draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
         draw_text(_xPos, yy + 375, string_hash_to_newline(back_text));");
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Step_0", "if (global.is_console && global.submenu == 36)", "if (global.submenu == 36)");

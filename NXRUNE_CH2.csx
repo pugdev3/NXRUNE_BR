@@ -5,7 +5,7 @@ using UndertaleModLib.Util;
 
 EnsureDataLoaded();
 
-if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune chapter 2")
+if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune capítulo 2")
 {
     ScriptError("Error : Not a Deltarune CH2 data.win file");
     return;
@@ -72,32 +72,34 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data, null, decompSet
 // obj_initializer2
 importGroup.QueueFindReplace("gml_Object_obj_initializer2_Create_0", "global.screen_border_id = \"\";", "global.screen_border_id = stringsetloc(\"Dynamic\", \"obj_initializer2_slash_Create_0_gml_22_0\");");
 
-importGroup.QueueFindReplace("gml_Object_obj_initializer2_Create_0", @"if (global.is_console)
-    loadtex = instance_create(0, 0, obj_prefetchtex);", @"if (true)
-    loadtex = instance_create(0, 0, obj_prefetchtex);");
+// NOTA: obj_prefetchtex não existe? Não tenho certeza do que isso faz, já que parece ter algo parecido na versão com a tradução (veja: scr_prefetch_textures)
 
-importGroup.QueueFindReplace("gml_Object_obj_initializer2_Step_0", @"    if (!textures_loaded)
-        textures_loaded = loadtex.loaded;
-    
-    if (textures_loaded)
-    {
-    }
-    else
-    {
-        exit;
-    }
-}", @"}
-    if (!textures_loaded)
-        textures_loaded = loadtex.loaded;
-    
-    if (textures_loaded)
-    {
-    }
-    else
-    {
-        exit;
-    }
-");
+// importGroup.QueueFindReplace("gml_Object_obj_initializer2_Create_0", @"if (global.is_console)
+//     loadtex = instance_create(0, 0, obj_prefetchtex);", @"if (true)
+//     loadtex = instance_create(0, 0, obj_prefetchtex);");
+//
+// importGroup.QueueFindReplace("gml_Object_obj_initializer2_Step_0", @"    if (!textures_loaded)
+//         textures_loaded = loadtex.loaded;
+//
+//     if (textures_loaded)
+//     {
+//     }
+//     else
+//     {
+//         exit;
+//     }
+// }", @"}
+//     if (!textures_loaded)
+//         textures_loaded = loadtex.loaded;
+//
+//     if (textures_loaded)
+//     {
+//     }
+//     else
+//     {
+//         exit;
+//     }
+// ");
 
 importGroup.QueueFindReplace("gml_Object_obj_initializer2_Step_0", @"        if (global.is_console)
             global.screen_border_alpha = 0;", "global.screen_border_alpha = 0;");
@@ -183,7 +185,7 @@ importGroup.QueueFindReplace("gml_Object_obj_border_controller_Draw_77", "draw_s
 
 // scr_draw_background_ps4
 
-importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    if (os_type == os_ps4 || scr_is_switch_os() || os_type == os_ps5)
+importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    if (os_type == os_ps4 || os_type == os_switch || os_type == os_ps5)
     {
         var scale = window_get_width() / 1920;
         draw_background_stretched(bg, xx * scale, yy * scale, background_get_width(bg) * scale, background_get_height(bg) * scale);
@@ -218,17 +220,17 @@ importGroup.QueueFindReplace("gml_GlobalScript_scr_draw_background_ps4", @"    i
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", "draw_sprite(spr_heart, 0, _heartXPos, yy + 160 + (global.submenucoord[30] * 35));", "draw_sprite(spr_heart, 0, _heartXPos, yy + 140 + (global.submenucoord[30] * 35));");
 
-importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        draw_text(_xPos, yy + 150, string_hash_to_newline(stringsetloc(""Master Volume"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
+importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        draw_text(_xPos, yy + 150, string_hash_to_newline(stringsetloc(""Volume Principal"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
         draw_text(_selectXPos, yy + 150, string_hash_to_newline(audvol));
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 185, string_hash_to_newline(stringsetloc(""Controls"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
-        draw_text(_xPos, yy + 220, string_hash_to_newline(stringsetloc(""Simplify VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
+        draw_text(_xPos, yy + 185, string_hash_to_newline(stringsetloc(""Controles"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
+        draw_text(_xPos, yy + 220, string_hash_to_newline(stringsetloc(""Simplificar VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
         draw_text(_selectXPos, yy + 220, string_hash_to_newline(flashoff));",
-        @"        draw_text(_xPos, yy + 130, string_hash_to_newline(stringsetloc(""Master Volume"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
+        @"        draw_text(_xPos, yy + 130, string_hash_to_newline(stringsetloc(""Volume Principal"", ""obj_darkcontroller_slash_Draw_0_gml_86_0"")));
         draw_text(_selectXPos, yy + 130, string_hash_to_newline(audvol));
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 165, string_hash_to_newline(stringsetloc(""Controls"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
-        draw_text(_xPos, yy + 200, string_hash_to_newline(stringsetloc(""Simplify VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
+        draw_text(_xPos, yy + 165, string_hash_to_newline(stringsetloc(""Controles"", ""obj_darkcontroller_slash_Draw_0_gml_91_0"")));
+        draw_text(_xPos, yy + 200, string_hash_to_newline(stringsetloc(""Simplificar VFX"", ""obj_darkcontroller_slash_Draw_0_gml_92_0"")));
         draw_text(_selectXPos, yy + 200, string_hash_to_newline(flashoff));");
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        if (global.is_console)
@@ -244,19 +246,19 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
             draw_text(_xPos, yy + 290, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
             draw_text(_selectXPos, yy + 290, border_options[selected_border]);
             draw_set_color(c_white);
-            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
             draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
         }
         else
         {
-            draw_text(_xPos, yy + 255, string_hash_to_newline(stringsetloc(""Fullscreen"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
+            draw_text(_xPos, yy + 255, string_hash_to_newline(stringsetloc(""Tela Cheia"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
             draw_text(xx + 430, yy + 255, string_hash_to_newline(fullscreenoff));
             draw_text(_xPos, yy + 290, string_hash_to_newline(autorun_text));
             draw_text(xx + 430, yy + 290, string_hash_to_newline(runoff));
-            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
             draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
         }",
-        @"        draw_text(_xPos, yy + 235, string_hash_to_newline(stringsetloc(""Fullscreen"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
+        @"        draw_text(_xPos, yy + 235, string_hash_to_newline(stringsetloc(""Tela Cheia"", ""obj_darkcontroller_slash_Draw_0_gml_93_0"")));
         draw_text(_selectXPos, yy + 235, string_hash_to_newline(fullscreenoff));
         draw_text(_xPos, yy + 270, string_hash_to_newline(autorun_text));
         draw_text(_selectXPos, yy + 270, string_hash_to_newline(runoff));
@@ -268,7 +270,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
         draw_text(_xPos, yy + 305, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
         draw_text(_selectXPos, yy + 305, border_options[selected_border]);
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Return to Title"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
+        draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
         draw_text(_xPos, yy + 375, string_hash_to_newline(back_text));");
 
 importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Step_0", "if (global.is_console && global.submenu == 36)", "if (global.submenu == 36)");
@@ -289,9 +291,6 @@ importGroup.QueueTrimmedLinesFindReplace("gml_Object_obj_darkcontroller_Step_0",
                     
                     if (global.submenucoord[30] == 4)
                     {
-                        if (room == room_dw_mansion_krisroom && global.plot <= 100)
-                            global.disable_border = true;
-
                         if (global.disable_border)
                         {
                             selectnoise = 0;
@@ -308,10 +307,7 @@ importGroup.QueueTrimmedLinesFindReplace("gml_Object_obj_darkcontroller_Step_0",
                         global.submenu = 34;
                     
                     if (global.submenucoord[30] == 6)
-                    {
                         m_quit = 1;
-                        cancelnoise = 1;
-                    }
                 }
                 else
                 {
@@ -333,10 +329,7 @@ importGroup.QueueTrimmedLinesFindReplace("gml_Object_obj_darkcontroller_Step_0",
                         global.submenu = 34;
                     
                     if (global.submenucoord[30] == 6)
-                    {
                         m_quit = 1;
-                        cancelnoise = 1;
-                    }
                 }",
                 @"if (global.submenucoord[30] == 3)
                     {
@@ -391,14 +384,16 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
                             ini_close();
                         }");
 
-importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Create_0", @"if (global.is_console)
-    global.chapter_return = -1;", "global.chapter_return = -1;");
+// # Não existe no arquivo  ¯\_(ツ)_/¯
 
-importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Alarm_0", "if (global.is_console)", "if (true)");
+// # importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Create_0", @"if (global.is_console)
+//     global.chapter_return = -1;", "global.chapter_return = -1;");
 
-// obj_chapter_continue
+//# importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Alarm_0", "if (global.is_console)", "if (true)");
 
-importGroup.QueueFindReplace("gml_Object_obj_chapter_continue_Alarm_0", "if (global.is_console)", "if (true)");
+//  # obj_chapter_continue
+
+// # importGroup.QueueFindReplace("gml_Object_obj_chapter_continue_Alarm_0", "if (global.is_console)", "if (true)");
 
 // scr_text
 
