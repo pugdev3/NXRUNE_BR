@@ -70,7 +70,7 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data, null, decompSet
 };
 
 // obj_initializer2
-importGroup.QueueFindReplace("gml_Object_obj_initializer2_Create_0", "global.screen_border_id = \"\";", "global.screen_border_id = stringsetloc(\"Dynamic\", \"obj_initializer2_slash_Create_0_gml_22_0\");");
+importGroup.QueueFindReplace("gml_Object_obj_initializer2_Create_0", "global.screen_border_id = \"\";", "global.screen_border_id = stringsetloc(\"Dinâmico\", \"obj_initializer2_slash_Create_0_gml_22_0\");");
 
 // NOTA: obj_prefetchtex não existe? Não tenho certeza do que isso faz, já que parece ter algo parecido na versão com a tradução (veja: scr_prefetch_textures)
 
@@ -267,7 +267,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
         else if (global.disable_border)
             draw_set_color(c_gray);
         
-        draw_text(_xPos, yy + 305, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
+        draw_text(_xPos, yy + 305, stringsetloc(""Borda"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
         draw_text(_selectXPos, yy + 305, border_options[selected_border]);
         draw_set_color(c_white);
         draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
@@ -378,7 +378,7 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
                             ini_close();
                         }", @"if (!global.is_console)
                         {
-                            global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dynamic"");
+                            global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dinâmico"");
                             var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"";
                             scr_enable_screen_border(!_disable_border);
                             ini_close();

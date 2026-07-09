@@ -174,6 +174,16 @@ else
 
 importGroup.QueueFindReplace("gml_Object_obj_border_controller_Draw_77", "draw_surface_ext(application_surface, xx, yy, global.window_scale, global.window_scale, 0, c_white, 1);", "draw_surface_stretched(application_surface, xx, yy, ww - (2 * xx), wh - (2 * yy));");
 
+importGroup.QueueFindReplace("gml_Object_obj_border_controller_Draw_77", "    if (border_id == \"Dynamic\" || border_id == \"ダイナミック\")", "    if (border_id == \"Dynamic\" || border_id == \"ダイナミック\" || border_id == \"Dinâmico\")");
+
+importGroup.QueueFindReplace("gml_Object_obj_border_controller_Draw_77", "    if (border_id == \"Simple\" || border_id == \"シンプル\")", "    if (border_id == \"Simple\" || border_id == \"シンプル\" || border_id == \"Simples\")");
+
+importGroup.QueueFindReplace("gml_Object_obj_border_controller_Create_0", "    if (border_id == \"Dynamic\" || border_id == \"ダイナミック\")", "    if (border_id == \"Dynamic\" || border_id == \"ダイナミック\" || border_id == \"Dinâmico\")");
+
+importGroup.QueueFindReplace("gml_Object_obj_border_controller_Create_0", "    else if (border_id == \"Simple\" || border_id == \"シンプル\")", "    else if (border_id == \"Simple\" || border_id == \"シンプル\" || border_id == \"Simples\")");
+
+importGroup.QueueFindReplace("gml_Object_obj_border_controller_Create_0", "    return global.screen_border_id == \"Simple\" || global.screen_border_id == \"シンプル\";", "    return global.screen_border_id == \"Simple\" || global.screen_border_id == \"シンプル\" || global.screen_border_id == \"Simples\";");
+
 
 // scr_draw_background_ps4
 
@@ -373,8 +383,8 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
                             ini_close();
                         }", @"if (!global.is_console)
                         {
-                            global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dynamic"");
-                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"";
+                            global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dinâmico"");
+                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"" || global.screen_border_id == ""Nada""
                             scr_enable_screen_border(!_disable_border);
                             ini_close();
                         }");
