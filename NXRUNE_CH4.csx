@@ -384,7 +384,7 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
                         }", @"if (!global.is_console)
                         {
                             global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dinâmico"");
-                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"" || global.screen_border_id == ""Nada""
+                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"" || global.screen_border_id == ""Nada"";
                             scr_enable_screen_border(!_disable_border);
                             ini_close();
                         }");
@@ -411,4 +411,4 @@ importGroup.QueueFindReplace("gml_Object_obj_dw_church_ripplepuzzle_postgers_Ste
 
 importGroup.Import();
 
-ScriptMessage("All done! :3");
+ScriptMessage("Tudo pronto! :3");

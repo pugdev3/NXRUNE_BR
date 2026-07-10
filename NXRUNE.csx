@@ -72,4 +72,4 @@ importGroup.QueueFindReplace("gml_Object_obj_screen_transition_Step_0", "if (glo
 
 importGroup.Import();
 
-ScriptMessage("All done! :3");
+ScriptMessage("Tudo pronto! :3");

@@ -318,4 +318,4 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Step_0", @"         
 
 importGroup.Import();
 
-ScriptMessage("All done! :3");
+ScriptMessage("Tudo pronto! :3");

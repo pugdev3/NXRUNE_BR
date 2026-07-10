@@ -243,7 +243,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
             else if (global.disable_border)
                 draw_set_color(c_gray);
             
-            draw_text(_xPos, yy + 290, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
+            draw_text(_xPos, yy + 290, stringsetloc(""Borda"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
             draw_text(_selectXPos, yy + 290, border_options[selected_border]);
             draw_set_color(c_white);
             draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
@@ -379,7 +379,7 @@ importGroup.QueueFindReplace("gml_Object_DEVICE_MENU_Step_0", @"if (!global.is_c
                         }", @"if (!global.is_console)
                         {
                             global.screen_border_id = ini_read_string(""BORDER"", ""TYPE"", ""Dinâmico"");
-                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"";
+                            var _disable_border = global.screen_border_id == ""None"" || global.screen_border_id == ""なし"" || global.screen_border_id == ""Nada"";
                             scr_enable_screen_border(!_disable_border);
                             ini_close();
                         }");
@@ -409,4 +409,4 @@ importGroup.QueueFindReplace("gml_Object_obj_onion_event_Create_0", "if (global.
 
 importGroup.Import();
 
-ScriptMessage("All done! :3");
+ScriptMessage("Tudo pronto! :3");
