@@ -251,7 +251,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
             else if (global.disable_border)
                 draw_set_color(c_gray);
             
-            draw_text(_xPos, yy + 290, stringsetloc(""Borda"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
+            draw_text(_xPos, yy + 290, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
             draw_text(_selectXPos, yy + 290, border_options[selected_border]);
             draw_set_color(c_white);
             draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
@@ -275,7 +275,7 @@ importGroup.QueueFindReplace("gml_Object_obj_darkcontroller_Draw_0", @"        i
         else if (global.disable_border)
             draw_set_color(c_gray);
         
-        draw_text(_xPos, yy + 305, stringsetloc(""Border"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
+        draw_text(_xPos, yy + 305, stringsetloc(""Borda"", ""obj_darkcontroller_slash_Draw_0_gml_112_0""));
         draw_text(_selectXPos, yy + 305, border_options[selected_border]);
         draw_set_color(c_white);
         draw_text(_xPos, yy + 340, string_hash_to_newline(stringsetloc(""Voltar ao Título"", ""obj_darkcontroller_slash_Draw_0_gml_95_0"")));
