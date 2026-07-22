@@ -7,7 +7,7 @@ EnsureDataLoaded();
 
 if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune capítulo 3")
 {
-    ScriptError("Error : Not a Deltarune CH3 data.win file");
+    ScriptError("Erro : Não é um arquivo do capítulo 3 de DELTARUNE");
     return;
 }
 
@@ -16,7 +16,7 @@ string bordersPath = Path.Combine(Path.GetDirectoryName(ScriptPath), "Borders/ch
 Dictionary<string, UndertaleEmbeddedTexture> textures = new();
 if (!Directory.Exists(bordersPath))
 {
-    throw new ScriptException("Border textures not found??");
+    throw new ScriptException("Texturas das bordas não encontradas???");
 }
 
 int lastTextPage = Data.EmbeddedTextures.Count - 1;

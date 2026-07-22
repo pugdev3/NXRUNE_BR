@@ -7,7 +7,7 @@ EnsureDataLoaded();
 
 if (Data?.GeneralInfo?.DisplayName?.Content.ToLower() != "deltarune")
 {
-    ScriptError("Error : Not a Deltarune data.win file");
+    ScriptError("Erro : não é um arquivo data.win de DELTARUNE");
     return;
 }
 
